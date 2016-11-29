@@ -1,6 +1,7 @@
 name := "isarn-scalatest"
 
 organization := "org.isarnproject"
+bintrayOrganization := Some("isarn")
 
 version := "0.0.1"
 
@@ -15,11 +16,6 @@ def commonSettings = Seq(
 )
 
 seq(commonSettings:_*)
-
-seq(bintraySettings:_*)
-
-seq(bintrayPublishSettings:_*)
-
 
 licenses += ("Apache-2.0", url("http://opensource.org/licenses/Apache-2.0"))
 
