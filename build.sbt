@@ -1,13 +1,48 @@
 name := "isarn-scalatest"
 
 organization := "org.isarnproject"
+
 bintrayOrganization := Some("isarn")
 
-version := "0.0.1"
+version := "0.0.2"
 
-scalaVersion := "2.10.6"
+scalaVersion := "2.11.8"
 
 crossScalaVersions := Seq("2.10.6", "2.11.8")
+
+useGpg := true
+
+pomIncludeRepository := { _ => false }
+
+publishMavenStyle := true
+
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
+licenses += ("Apache-2.0", url("http://opensource.org/licenses/Apache-2.0"))
+
+homepage := Some(url("http://example.com"))
+
+scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/isarn/isarn-scalatest"),
+    "scm:git@github.com:isarn/isarn-scalatest.git"
+  )
+)
+
+developers := List(
+  Developer(
+    id    = "erikerlandson",
+    name  = "Erik Erlandson",
+    email = "eje@redhat.com",
+    url   = url("https://erikerlandson.github.io/")
+  )
+)
 
 def commonSettings = Seq(
   libraryDependencies ++= Seq(
@@ -16,8 +51,6 @@ def commonSettings = Seq(
 )
 
 seq(commonSettings:_*)
-
-licenses += ("Apache-2.0", url("http://opensource.org/licenses/Apache-2.0"))
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 
