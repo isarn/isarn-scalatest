@@ -6,7 +6,7 @@ name := "isarn-scalatest"
 
 organization := "org.isarnproject"
 
-version := "0.0.3"
+version := "0.0.4-SNAPSHOT"
 
 scalaVersion := "2.11.12"
 
